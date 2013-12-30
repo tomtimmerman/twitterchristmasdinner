@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="utf-8">
+  <title>Christmas dinner on twitter</title>
+  <meta name="description" content="Data visualization on what people have tweeted about their Christmas dinner.">
+  <meta name="author" content="Tom Timmerman">
+  <meta name="keywords" content="Data visualization, Twitter, Christmas dinner">
+  <link rel="stylesheet" type="text/css" href="app/css/stylesheet.css">
+</head>
+
+<body ng-app="christmasdinner">
+
+  <section id="home">
+    <div class="container">
+      <img src="app/images/twitterchrismaslogo.png">
+      <h1>Christmas dinner on Twitter</h1>
+    </div>
+  </section>
+
+  <section id="relation">
+    <div class="container">
+      <h2>What did people mention in their tweets about christmas dinner<br/><small>(Click on a bubble to see the relation to other ingredients)</small></h2>
+      <relation></relation>
+    </div>
+  </section>
+
+  <section id="geography">
+    <div ng-controller="GeoCntrl" class="container">
+      <h2>Locations of people who tweet about christmas dinner</h2>
+      <p>Tweets that mention <select ng-model="ingredient" ng-options="ing.name for ing in ingredients"></select> were sent from the following locations:</p>
+      <geo display="ingredient"></geo>
+    </div>
+  </section>
+
+  <section id="accountability">
+    <div class="container">
+      <div class="half-container">
+        <img src="app/images/info.png">
+        <h2>Accountability</h2>
+        <p>This visualization is based on an analyses of tweet collected from the 24th until the 27th of December 2013. The collection consists of 14 million tweets and was analyzed for the frequency of about 500 different text patterns that relate to food. These text patterns don't tell the whole story but give an impression of what people eat during Christmas. </p>
+        <p>The analysis is done based on the assumption that if two or more text patterns are found in a tweet, that the tweet is composed in the context of food. And the analysis is only done on text patterns in the English language.</p>
+      </div>
+      <div class="half-container">
+        <img src="app/images/chat.png">
+        <h2>Contact</h2>
+        <p>This visualization is created by Tom Timmerman. You can email me at info(at)tomtimmerman.nl</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </section>
+
+  <section id="footer">
+    <div class="container">
+      <p>Share this visualization on:</p>
+      <a href="http://twitter.com/home?status=Data%20visualization%20on%20what%20people%20have%20tweeted%20about%20their%20Christmas%20dinner.%20http://www.tomtimmerman.nl/twitterchristmas/" target="_blank"><img src="app/images/twitter.png"></a>
+      <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.tomtimmerman.nl/twitterchristmas/&p[images][0]=http://www.tomtimmerman.nl/twitterchristmas/app/images/thumbnail.png&p[title]=Christmas%20dinner%20on%20twitter&p[summary]=Data%20visualization%20on%20what%20people%20have%20tweeted%20about%20their%20Christmas%20dinner." target="_blank"><img src="app/images/facebook.png"></a>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="app/js/lib/angular.min.js"></script>
+  <script type="text/javascript" src="app/js/main.js"></script>
+  <script type="text/javascript" src="app/js/controller/geoCntrl.js"></script>
+  <script type="text/javascript" src="app/js/directive/relation.js"></script>
+  <script type="text/javascript" src="app/js/directive/geo.js"></script>
+  <script type="text/javascript" src="app/js/service/d3.js"></script>
+  <script type="text/javascript" src="app/js/service/topojson.js"></script>
+  <script type="text/javascript" src="app/js/service/patterns.js"></script>
+  <script type="text/javascript" src="app/js/service/ingredients.js"></script>
+  <script type="text/javascript" src="app/js/service/worldmap.js"></script>
+  <script type="text/javascript" src="app/js/service/locations.js"></script>
+</body>
+</html>
