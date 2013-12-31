@@ -84,7 +84,11 @@ h2 small {
   float: left;
   width: 45%;
   padding: 0;
-  margin: 0 2em 0 0;
+  margin: 0;
+}
+
+.half-container:first-child {
+  margin: 0 3em 0 0;
 }
 
 .half-container img {
@@ -118,7 +122,6 @@ h2 small {
   background: -ms-linear-gradient(left,  #eaeaea 0%,#ffffff 50%,#e8e8e8 100%); /* IE10+ */
   background: linear-gradient(to right,  #eaeaea 0%,#ffffff 50%,#e8e8e8 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#e8e8e8',GradientType=1 ); /* IE6-9 */
-
 }
 
 #relation small {
