@@ -10,23 +10,6 @@ app.directive('relation', function(d3, patterns, ingredients) {
 				height = 600;
 
 
-scope.$watch
-    (
-        function () {
-            return linkElement.width();
-        },
-        function (newValue, oldValue) {
-            if (newValue != oldValue) {
-                // Do something ...
-                console.log(newValue);
-            }
-        }
-    );
-//console.log(angular.element(element).css('width'));
-//console.log(element);
-
-
-
 			var svg = d3.select(".relationChart").append("svg")
 				.attr("width", width)
 				.attr("height", height)
@@ -166,20 +149,28 @@ scope.$watch
 
 	        // 
 	        function selectNode(self, itemData) {
-	        	hideNodes(self);
+	        	hideNodes(self); // hide not selected nodes
 
-			    // move selected node to center
-			    svg.selectAll('.node').transition()
+				// hide selected node
+			    svg.selectAll('.node').select('circle').transition()
 					.ease("elastic")
 					.delay(700)
+					.duration(1000)
+					.style('fill-opacity', 0);
+
+			    svg.selectAll('.node').select('text').transition()
+					.ease("elastic")
+					.delay(600)
 					.duration(900)
-					.attr("transform", function(d) { return (this === self) ? "translate(" + width/2 + "," + height/2 + ")" : "translate(" + d.x + "," + d.y + ")"; });
+					.style('fill-opacity', 0);
+
 
 				// wait for animations to complete
 				setTimeout(function(){
 					//
 					svg.selectAll('.node').remove(); // remove nodes
 					svg.selectAll('.charttitle').remove(); // remove title
+					svg.selectAll('.popup').remove(); // remove popup
 
 		        	// format root data for d3 pack
 		        	// d3 pack layout needs an root node that contains all the data
@@ -276,12 +267,12 @@ scope.$watch
 		        	// rebuild view
 		        	drawBubbleView(subRoot);
 
-				},900);
+				},1000);
 	        }
 
 
 
-	        //
+	        // 
 	        function hideNodes(self) {
 				// mark nodes are not selected
 			    svg.selectAll('.node')
