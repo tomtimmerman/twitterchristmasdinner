@@ -109,6 +109,18 @@ h2 small {
   color: #fff;
 }
 
+#relation {
+  background: #eaeaea; /* Old browsers */
+  background: -moz-linear-gradient(left,  #eaeaea 0%, #ffffff 50%, #e8e8e8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eaeaea), color-stop(50%,#ffffff), color-stop(100%,#e8e8e8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #eaeaea 0%,#ffffff 50%,#e8e8e8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #eaeaea 0%,#ffffff 50%,#e8e8e8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #eaeaea 0%,#ffffff 50%,#e8e8e8 100%); /* IE10+ */
+  background: linear-gradient(to right,  #eaeaea 0%,#ffffff 50%,#e8e8e8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#e8e8e8',GradientType=1 ); /* IE6-9 */
+
+}
+
 #relation small {
   color: #a1a1a1;
 }
