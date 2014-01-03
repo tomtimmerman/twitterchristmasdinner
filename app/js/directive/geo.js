@@ -11,7 +11,7 @@ app.directive('geo', function(d3, topojson, worldmap, locations) {
 
 			var ingredientIndex = 0;
 			
-			// listener, listens for changes in display attribute
+			// event listener, listens for changes in display attribute
 	        scope.$watch('display', function() {
 	        	ingredientIndex = getIngredientIndex(scope.display.name); // get index
 				svg.selectAll('.mappoints').remove(); // remove map points

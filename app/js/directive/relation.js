@@ -9,6 +9,8 @@ app.directive('relation', function(d3, patterns, ingredients) {
 			var width = 960,
 				height = 600;
 
+//console.log(element.width());
+
 
 			var svg = d3.select(".relationChart").append("svg")
 				.attr("width", width)
